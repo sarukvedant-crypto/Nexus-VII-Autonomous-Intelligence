@@ -7,8 +7,9 @@ auth/credentials.json
 temp/
 uploads/
 data/memory_db.json
-data/app_cache.json
+modules/app_cache.json
 data/goals.json
 data/memory.txt
 *.wav
 *.mp3
+*.log

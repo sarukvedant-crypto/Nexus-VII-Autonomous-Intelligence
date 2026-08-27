@@ -7,10 +7,10 @@
 Built with Python · FastAPI · WebSockets · Google Gemini · NVIDIA · Mistral AI
 
 <br>
-<img src="https://img.shields.io/github/license/vedant-saruk/Nexus-VII-Autonomous-Intelligence-?style=flat-square" alt="License">
-<img src="https://img.shields.io/github/stars/vedant-saruk/Nexus-VII-Autonomous-Intelligence-?style=flat-square" alt="Stars">
-<img src="https://img.shields.io/github/forks/vedant-saruk/Nexus-VII-Autonomous-Intelligence-?style=flat-square" alt="Forks">
-<img src="https://img.shields.io/github/issues/vedant-saruk/Nexus-VII-Autonomous-Intelligence-?style=flat-square" alt="Issues">
+<img src="https://img.shields.io/github/license/vedant-saruk/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="License">
+<img src="https://img.shields.io/github/stars/vedant-saruk/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="Stars">
+<img src="https://img.shields.io/github/forks/vedant-saruk/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="Forks">
+<img src="https://img.shields.io/github/issues/vedant-saruk/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="Issues">
 <br>
 
 </div>

@@ -32,6 +32,9 @@ Built with Python · FastAPI · WebSockets · Google Gemini · NVIDIA · Mistral
 | **🧠 Vector Memory** | Persistent long-term memory with semantic recall (RAG). |
 | **📄 PDF Generation** | Beautiful, themed PDF creation with Playwright rendering. |
 | **🎯 Skills System** | Extensible skill/plugin system to teach your AI new behaviors. |
+| **🎵 Spotify Automation** | Headless browser track searching and playback without needing API keys. |
+| **🎬 Video Editing** | Automate DaVinci Resolve via scripts to import clips and organize media. |
+| **🚀 Smart App Locator** | Dynamically finds and launches Windows apps using deep registry scanning. |
 
 ---
 

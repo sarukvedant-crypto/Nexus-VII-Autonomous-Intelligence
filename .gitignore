@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+.env
+auth/token.json
+auth/credentials.json
+temp/
+uploads/
+data/memory_db.json
+data/app_cache.json
+data/goals.json
+data/memory.txt
+*.wav
+*.mp3

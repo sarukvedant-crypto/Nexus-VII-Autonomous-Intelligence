@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S. HUD — Mark VII</title>
+    <meta name="description" content="J.A.R.V.I.S. Advanced AI Assistant Interface — Stark Industries">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- BACKGROUND PARTICLE CANVAS -->
+    <canvas id="hudCanvas"></canvas>
+
+    <!-- SCAN LINES OVERLAY -->
+    <div class="scanlines"></div>
+
+    <!-- ============================================================ -->
+    <!-- HEADER                                                       -->
+    <!-- ============================================================ -->
+    <header class="hud-header boot-slide-down">
+        <div class="header-left">
+            <span class="logo-text">J.A.R.V.I.S.</span>
+            <span class="version-tag">MK VII</span>
+        </div>
+        <div class="header-center">
+            <div class="status-indicator" id="statusIndicator">
+                <span class="status-dot" id="statusDot"></span>
+                <span class="status-text" id="statusText">OFFLINE</span>
+                <div class="signal-bars" id="signalBars">
+                    <div class="s-bar"></div>
+                    <div class="s-bar"></div>
+                    <div class="s-bar"></div>
+                    <div class="s-bar"></div>
+                    <div class="s-bar"></div>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="hud-btn settings-btn" id="settingsBtn" title="Settings">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- MAIN LAYOUT                                                  -->
+    <!-- ============================================================ -->
+    <main class="hud-main">
+        <!-- LEFT: TELEMETRY PANEL -->
+        <aside class="telemetry-panel hud-panel boot-slide-left">
+            <div class="data-flow-line data-flow-right">
+                <div class="data-dot"></div>
+            </div>
+            <h3 class="panel-title">SYSTEM DIAGNOSTICS</h3>
+
+            <div class="gauge-group">
+                <!-- CPU Gauge -->
+                <div class="hbar-gauge">
+                    <div class="hbar-header">
+                        <span class="hbar-name">CPU</span>
+                        <span class="hbar-value" id="cpuValue">0%</span>
+                    </div>
+                    <div class="hbar-track">
+                        <div class="hbar-fill" id="cpuBar" style="width: 0%"></div>
+                    </div>
+                    <span class="hbar-detail" id="cpuDetail">&nbsp;</span>
+                </div>
+
+                <!-- RAM Gauge -->
+                <div class="hbar-gauge">
+                    <div class="hbar-header">
+                        <span class="hbar-name">MEMORY</span>
+                        <span class="hbar-value" id="ramValue">0%</span>
+                    </div>
+                    <div class="hbar-track">
+                        <div class="hbar-fill" id="ramBar" style="width: 0%"></div>
+                    </div>
+                    <span class="hbar-detail" id="ramDetail">&nbsp;</span>
+                </div>
+
+                <!-- POWER Gauge -->
+                <div class="hbar-gauge">
+                    <div class="hbar-header">
+                        <span class="hbar-name">POWER</span>
+                        <span class="hbar-value" id="powerValue">0%</span>
+                    </div>
+                    <div class="hbar-track">
+                        <div class="hbar-fill hbar-fill-power" id="powerBar" style="width: 0%"></div>
+                    </div>
+                    <span class="hbar-detail" id="powerDetail">&nbsp;</span>
+                </div>
+            </div>
+
+            <div class="telemetry-info">
+                <div class="info-row">
+                    <span class="info-label">TIME</span>
+                    <span class="info-value" id="timeValue">--:-- --</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">WEATHER</span>
+                    <span class="info-value" id="weatherValue">--</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CENTER: ARC REACTOR + TRANSCRIPT -->
+        <section class="center-panel boot-fade-in">
+            <div class="arc-reactor-wrapper" id="arcReactorWrapper">
+                <canvas id="reactorCanvas" width="300" height="300"></canvas>
+                <div class="arc-reactor" id="arcReactor">
+                    <div class="arc-ring arc-ring-outermost"></div>
+                    <div class="arc-ring arc-ring-outer"></div>
+                    <div class="arc-ring arc-ring-middle"></div>
+                    <div class="arc-ring arc-ring-inner"></div>
+                    <div class="arc-core"></div>
+                </div>
+                <div class="arc-status-label" id="arcStatusLabel">OFFLINE</div>
+            </div>
+
+            <div class="transcript-container hud-panel" id="transcriptContainer">
+                <div class="transcript-scroll" id="transcriptScroll">
+                    <div class="transcript-entry system">
+                        <span class="entry-prefix">[SYSTEM]</span>
+                        <span class="entry-text">J.A.R.V.I.S. HUD initialized. Press ACTIVATE to begin.</span>
+                    </div>
+                </div>
+                <div class="chat-input-bar" id="chatInputBar" style="position: relative;">
+                    <div id="autocompleteMenu" class="autocomplete-menu" style="display: none; position: absolute; bottom: calc(100% + 5px); left: 0; width: 100%; max-height: 200px; overflow-y: auto; background: rgba(0, 15, 30, 0.95); border: 1px solid var(--cyan); border-radius: 6px; box-shadow: 0 -5px 15px rgba(0, 212, 255, 0.2); z-index: 100; flex-direction: column; padding: 5px; gap: 2px;"></div>
+                    <input type="file" id="mediaFileInput" accept="image/*,.pdf,.txt" style="display:none">
+                    <button class="chat-attach-btn" id="chatAttachBtn" title="Attach Media">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>
+                    </button>
+                    <div class="media-preview" id="mediaPreview" style="display:none">
+                        <img id="mediaPreviewImg" src="" alt="preview" style="display:none;">
+                        <span id="mediaPreviewText" style="display:none; color:var(--cyan); font-size:12px; margin: 0 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100px; line-height:30px;"></span>
+                        <button class="media-preview-remove" id="mediaPreviewRemove">&times;</button>
+                    </div>
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Type a command, Sir..." autocomplete="off">
+                    <button class="chat-send-btn" id="chatSendBtn" title="Send">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT: CONTROLS PANEL -->
+        <aside class="controls-panel hud-panel boot-slide-right">
+            <div class="data-flow-line data-flow-left">
+                <div class="data-dot"></div>
+            </div>
+            <h3 class="panel-title">CONTROL MATRIX</h3>
+            <button class="control-btn activate-btn" id="activateBtn">
+                <span class="btn-icon">⏻</span>
+                <span class="btn-label">ACTIVATE</span>
+            </button>
+            <button class="control-btn interrupt-btn" id="interruptBtn" disabled>
+                <span class="btn-icon">■</span>
+                <span class="btn-label">INTERRUPT</span>
+            </button>
+            <div class="control-divider"></div>
+            <div class="quick-info">
+                <div class="quick-info-item">
+                    <span class="qi-label">WAKE WORD</span>
+                    <span class="qi-value">"JARVIS"</span>
+                </div>
+                <div class="quick-info-item">
+                    <span class="qi-label">AI MODEL</span>
+                    <span class="qi-value" id="modelDisplay">--</span>
+                </div>
+            </div>
+            <div class="control-divider"></div>
+            <button class="control-btn" id="skillsBtn" style="border-color: #00ffcc; color: #00ffcc; box-shadow: 0 0 10px rgba(0,255,204,0.2);">
+                <span class="btn-icon">🧠</span>
+                <span class="btn-label">SKILL CENTER</span>
+            </button>
+            <div class="control-divider"></div>
+            <h3 class="panel-title" style="margin-top:4px">MEMORY VAULT</h3>
+            <div class="memory-vault-container" style="display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--border-bright); padding: 10px; background: rgba(0, 20, 40, 0.4); border-radius: 4px;">
+                <textarea class="hud-textarea" id="mvTextInput" placeholder="Teach Jarvis a fact or describe an image..." style="min-height: 60px; font-size: 13px;"></textarea>
+                
+                <input type="file" id="mvFileInput" class="hud-input" accept="image/*" style="width: 100%; font-size: 11px; padding: 6px; box-sizing: border-box; color: var(--cyan); background: rgba(0,0,0,0.3);">
+                
+                <button class="hud-btn save-btn" id="mvSubmitBtn" style="padding: 6px; width: 100%;">STORE MEMORY</button>
+                
+                <div id="mvStatus" style="color: var(--text-dim); font-size: 11px; font-family: var(--font-display); min-height: 14px; text-align: center;"></div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- SETTINGS MODAL                                               -->
+    <!-- ============================================================ -->
+    <div class="settings-overlay" id="settingsOverlay">
+        <div class="settings-modal">
+            <div class="settings-header">
+                <h2>CONFIGURATION</h2>
+                <button class="close-btn" id="closeSettingsBtn">&times;</button>
+            </div>
+            <div class="settings-body">
+                <!-- PRIMARY AI -->
+                <div class="settings-section">
+                    <h4 class="section-title">🧠 PRIMARY AI</h4>
+                    <label class="input-label">Base URL</label>
+                    <input type="text" class="hud-input" id="inputBaseUrl" placeholder="https://generativelanguage.googleapis.com/v1beta/openai/">
+                    <label class="input-label">API Key</label>
+                    <input type="password" class="hud-input" id="inputApiKey" placeholder="Paste your API key here">
+                    <label class="input-label">Model Name</label>
+                    <input type="text" class="hud-input" id="inputModel" placeholder="gemini-3.5-flash-lite">
+                </div>
+
+                <!-- AUTO-SWAP BACKUP KEYS -->
+                <div class="settings-section">
+                    <h4 class="section-title">⚡ AUTO-SWAP BACKUP KEYS</h4>
+                    <p class="settings-hint">When the primary key hits rate limits, Jarvis automatically cycles through these backups. Just paste keys and they'll be used in order.</p>
+                    <div class="backup-keys-list" id="backupKeysList">
+                        <div class="backup-key-entry">
+                            <div class="bk-header">
+                                <span class="bk-number">1</span>
+                                <span class="bk-model">Nemotron 120B</span>
+                                <span class="bk-status online">● READY</span>
+                            </div>
+                        </div>
+                        <div class="backup-key-entry">
+                            <div class="bk-header">
+                                <span class="bk-number">2</span>
+                                <span class="bk-model">Deepseek V4 Pro</span>
+                                <span class="bk-status online">● READY</span>
+                            </div>
+                        </div>
+                        <div class="backup-key-entry">
+                            <div class="bk-header">
+                                <span class="bk-number">3</span>
+                                <span class="bk-model">Llama 3.3 70B</span>
+                                <span class="bk-status online">● READY</span>
+                            </div>
+                        </div>
+                        <div class="backup-key-entry">
+                            <div class="bk-header">
+                                <span class="bk-number">4</span>
+                                <span class="bk-model">GPT-OSS 120B</span>
+                                <span class="bk-status online">● READY</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="settings-hint" style="margin-top:8px">To add/edit backup keys, update the <code>.env</code> file (BACKUP_1_URL, BACKUP_1_KEY, BACKUP_1_MODEL, etc.)</p>
+                </div>
+
+                <!-- VOICE SELECTION -->
+                <div class="settings-section">
+                    <h4 class="section-title">🎙️ AI VOICE PROFILE</h4>
+                    <label class="input-label">Select Voice</label>
+                    <select class="hud-input" id="inputVoice">
+                        <option value="en-GB-RyanNeural">J.A.R.V.I.S. (British Male)</option>
+                        <option value="en-US-AriaNeural">F.R.I.D.A.Y. (American Female)</option>
+                        <option value="en-US-ChristopherNeural">Christopher (American Male)</option>
+                        <option value="en-AU-NatashaNeural">Natasha (Australian Female)</option>
+                    </select>
+                </div>
+
+                <!-- MEMORY -->
+                <div class="settings-section">
+                    <h4 class="section-title">🧠 PERSISTENT MEMORY</h4>
+                    <textarea class="hud-textarea" id="inputMemory" placeholder="Paste your personal data, preferences, and memories here..."></textarea>
+                </div>
+
+                <button class="control-btn save-btn" id="saveSettingsBtn">
+                    <span class="btn-label">SAVE &amp; APPLY</span>
+                </button>
+                <div class="save-status" id="saveStatus"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- CONFIRMATION GATE MODAL                                      -->
+    <!-- ============================================================ -->
+    <div class="confirm-overlay" id="confirmOverlay">
+        <div class="confirm-modal">
+            <div class="confirm-icon">⚠</div>
+            <div class="confirm-title">AUTHORIZATION REQUIRED</div>
+            <div class="confirm-message" id="confirmMessage">A dangerous action has been requested.</div>
+            <div class="confirm-details" id="confirmDetails"></div>
+            <div class="confirm-buttons">
+                <button class="confirm-btn confirm-deny" id="confirmDenyBtn">DENY</button>
+                <button class="confirm-btn confirm-approve" id="confirmApproveBtn">AUTHORIZE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS MODAL -->
+    <div class="settings-overlay" id="skillsModal">
+        <div class="settings-modal" style="max-width: 800px; max-height: 90vh; display: flex; flex-direction: column;">
+            <div class="settings-header">
+                <h2>🧠 NEURAL SKILL CENTER</h2>
+                <button class="close-btn" id="skillsCloseBtn">&times;</button>
+            </div>
+            <div class="settings-body" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 15px;">
+                <p class="settings-hint">Skills are isolated modules. You can invoke them in chat using <code>/skill [name]</code> (e.g. <code>/skill math_expert</code>).</p>
+                
+                <div class="settings-section">
+                    <h4 class="section-title">📥 IMPORT SKILL</h4>
+                    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                        <input type="text" id="skillUrlInput" class="hud-input" style="flex: 1;" placeholder="Paste URL (e.g. GitHub raw link)...">
+                        <input type="text" id="skillNameInput" class="hud-input" style="width: 150px;" placeholder="skill_name">
+                        <button class="hud-btn save-btn" id="importSkillUrlBtn">IMPORT</button>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <input type="file" id="skillFileInput" class="hud-input" accept=".txt,.md" style="flex: 1;">
+                        <button class="hud-btn save-btn" id="uploadSkillBtn">UPLOAD</button>
+                    </div>
+                </div>
+
+                <div class="settings-section" style="flex: 1; display: flex; flex-direction: column; min-height: 250px;">
+                    <h4 class="section-title">📚 INSTALLED SKILLS</h4>
+                    <div id="skillsList" style="display: flex; flex-direction: column; gap: 8px; flex: 1; overflow-y: auto; border: 1px solid var(--border-bright); padding: 10px; background: rgba(0, 20, 40, 0.4); border-radius: 4px;">
+                        <div style="color: var(--text-dim); font-size: 12px; font-family: var(--font-display);">Loading skills...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/particles.js?v=1.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+JARVIS UPGRADE BACKLOG (UNIMPLEMENTED IDEAS)
+
+1. THE FFMPEG VERTICAL VIDEO ENGINE (DaVinci Automation)
+   Goal: Automate the DaVinci Resolve workflow. Jarvis will take raw clips downloaded from Google Drive, use hardware-accelerated FFmpeg to stitch them together, crop/scale them to a 9:16 vertical format (1080x1920), compress the massive 6GB file down to under 1GB, and send it back so it can be edited on a phone without storage limits.
+   Status: On Hold (Paused to fix the Drive downloader bug and API limits).
+
+2. JARVIS VOICE SECURITY ARCHITECTURE (Dangerous Action Gate)
+   Goal: Prevent unauthorized people from shouting rogue commands (like shutting down the PC). Secure dangerous actions using a multi-factor confirmation gate.
+   Options: Codewords, Telegram 2FA (tapping YES on phone to authorize), or Hardware Push-to-Talk.
+   Status: Awaiting Decision.
+
+3. SUBAGENT API DECOUPLING (The 503 Overload Fix)
+   Goal: While Jarvis's main brain can hot-swap APIs during a Google 503 server overload, his coding subagent (Antigravity SDK) is hardcoded to only accept Google Gemini keys. We need a workaround to make his coding subagent support NVIDIA/Mistral keys to prevent crashes during heavy load.
+   Status: Pending.
+
+4. THE AUTONOMOUS GROWTH ENGINE (Proactive Evolution)
+   Goal: Make Jarvis truly "grow" with the user by shifting from a reactive bot to a proactive companion that builds a deep psychological and behavioral profile over time.
+   Part A (Silent Learning): Update his core prompt to silently invoke the store_memory tool whenever he detects personal details, weaknesses, or mental health context.
+   Part B (Llama Reflection Loop): A script that triggers on boot/idle, uses the free NVIDIA Llama 70B key (saving Gemini tokens), analyzes recent chat transcripts, and extracts deep behavioral insights into his core memory.
+   Status: Fully planned, awaiting integration.
+
+5. LINK SHARING
+   Goal: Ensure Jarvis is able to share links properly.

@@ -1,0 +1,5 @@
+CRITICAL DOCUMENT RULE: Whenever you are asked to generate a document, report, or PDF, you MUST use rich GitHub-flavored Markdown. 
+- Use # and ## for headers (NEVER use dashes ----).
+- Use **bold** for emphasis.
+- Use true markdown tables if displaying data.
+- NEVER output raw plain text blocks. Always structure it beautifully so the PDF CSS engine can style it!

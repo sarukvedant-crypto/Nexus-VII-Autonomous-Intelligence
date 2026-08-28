@@ -1,10 +1,10 @@
-# Nexus VII — Autonomous Intelligence
+﻿# Nexus VII â€” Autonomous Intelligence
 
 <div align="center">
 
 **A J.A.R.V.I.S.-inspired autonomous AI assistant with voice control, Telegram integration, proactive reminders, web form automation, screen analysis, and neural hot-swapping across multiple AI providers.**
 
-Built with Python · FastAPI · WebSockets · Google Gemini · NVIDIA · Mistral AI
+Built with Python Â· FastAPI Â· WebSockets Â· Google Gemini Â· NVIDIA Â· Mistral AI
 
 <br>
 <img src="https://img.shields.io/github/license/vedant-saruk/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="License">
@@ -17,61 +17,61 @@ Built with Python · FastAPI · WebSockets · Google Gemini · NVIDIA · Mistral
 
 ---
 
-## ✨ Features
+## âœ¨ Features
 
 | Feature | Description |
 |---------|-------------|
-| **🎙️ Voice Control** | Speak to your assistant using real-time speech recognition and TTS. |
-| **💬 Telegram Bot** | Remote control and notifications via a personal Telegram bot. |
-| **🧠 Proactive Engine** | Autonomous background AI that monitors your goals and sends nudges. |
-| **📝 Web Form Automation** | AI-powered Google Forms and web form filling via Playwright. |
-| **👁️ Screen Analysis** | OCR and Gemini-powered vision to understand what's on your screen. |
-| **⚡ Neural Hot-Swapping** | Seamless automatic failover across multiple AI providers when rate limits hit. |
-| **📅 Google Calendar** | Check and create calendar events via the Google Calendar API. |
-| **📥 Google Drive** | Download files and entire folders from Google Drive shared links. |
-| **🧠 Vector Memory** | Persistent long-term memory with semantic recall (RAG). |
-| **📄 PDF Generation** | Beautiful, themed PDF creation with Playwright rendering. |
-| **🎯 Skills System** | Extensible skill/plugin system to teach your AI new behaviors. |
-| **🎵 Spotify Automation** | Headless browser track searching and playback without needing API keys. |
-| **🎬 Video Editing** | Automate DaVinci Resolve via scripts to import clips and organize media. |
-| **🚀 Smart App Locator** | Dynamically finds and launches Windows apps using deep registry scanning. |
+| **ðŸŽ™ï¸ Voice Control** | Speak to your assistant using real-time speech recognition and TTS. |
+| **ðŸ’¬ Telegram Bot** | Remote control and notifications via a personal Telegram bot. |
+| **ðŸ§  Proactive Engine** | Autonomous background AI that monitors your goals and sends nudges. |
+| **ðŸ“ Web Form Automation** | AI-powered Google Forms and web form filling via Playwright. |
+| **ðŸ‘ï¸ Screen Analysis** | OCR and Gemini-powered vision to understand what's on your screen. |
+| **âš¡ Neural Hot-Swapping** | Seamless automatic failover across multiple AI providers when rate limits hit. |
+| **ðŸ“… Google Calendar** | Check and create calendar events via the Google Calendar API. |
+| **ðŸ“¥ Google Drive** | Download files and entire folders from Google Drive shared links. |
+| **ðŸ§  Vector Memory** | Persistent long-term memory with semantic recall (RAG). |
+| **ðŸ“„ PDF Generation** | Beautiful, themed PDF creation with Playwright rendering. |
+| **ðŸŽ¯ Skills System** | Extensible skill/plugin system to teach your AI new behaviors. |
+| **ðŸŽµ Spotify Automation** | Headless browser track searching and playback without needing API keys. |
+| **ðŸŽ¬ Video Editing** | Automate DaVinci Resolve via scripts to import clips and organize media. |
+| **ðŸš€ Smart App Locator** | Dynamically finds and launches Windows apps using deep registry scanning. |
 
 ---
 
-## 📁 Directory Structure
+## ðŸ“ Directory Structure
 
 ```
 Nexus-VII-Autonomous-Intelligence/
-├── api/             # External service integrations (Telegram bot, reminders)
-├── auth/            # Google OAuth credentials (you provide these)
-├── core/            # Main AI engine, server, vector memory, proactive engine
-├── data/            # Local databases, caches, memory, and goals
-├── docs/            # Project documentation and ideas
-├── modules/         # Specialized modules (OCR, Calendar, Drive, PDF, App Locator)
-├── scripts/         # Utility scripts (Syllabus generator, file organizer)
-├── skills/          # AI behavior rules and skill files (.md/.txt)
-├── static/          # Web UI (HTML, CSS, JS, particles)
-├── temp/            # Temporary processing files
-├── tests/           # Test scripts
-├── .env.example     # Environment variable template (copy to .env)
-├── launch_jarvis.bat# One-click launcher for Windows
-└── requirements.txt # Python dependencies
+â”œâ”€â”€ api/             # External service integrations (Telegram bot, reminders)
+â”œâ”€â”€ auth/            # Google OAuth credentials (you provide these)
+â”œâ”€â”€ core/            # Main AI engine, server, vector memory, proactive engine
+â”œâ”€â”€ data/            # Local databases, caches, memory, and goals
+â”œâ”€â”€ docs/            # Project documentation and ideas
+â”œâ”€â”€ modules/         # Specialized modules (OCR, Calendar, Drive, PDF, App Locator)
+â”œâ”€â”€ scripts/         # Utility scripts (Syllabus generator, file organizer)
+â”œâ”€â”€ skills/          # AI behavior rules and skill files (.md/.txt)
+â”œâ”€â”€ static/          # Web UI (HTML, CSS, JS, particles)
+â”œâ”€â”€ temp/            # Temporary processing files
+â”œâ”€â”€ tests/           # Test scripts
+â”œâ”€â”€ .env.example     # Environment variable template (copy to .env)
+â”œâ”€â”€ launch_jarvis.bat# One-click launcher for Windows
+â””â”€â”€ requirements.txt # Python dependencies
 ```
 
 ---
 
-## 🚀 Setup Instructions
+## ðŸš€ Setup Instructions
 
 ### Prerequisites
 
-- **Python 3.10+** — [Download](https://www.python.org/downloads/)
-- **Windows 10/11** — This project uses Windows-specific APIs (registry, PowerShell, etc.)
-- **Git** — [Download](https://git-scm.com/)
+- **Python 3.10+** â€” [Download](https://www.python.org/downloads/)
+- **Windows 10/11** â€” This project uses Windows-specific APIs (registry, PowerShell, etc.)
+- **Git** â€” [Download](https://git-scm.com/)
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Nexus-VII-Autonomous-Intelligence.git
+git clone https://github.com/vedant-saruk/Nexus-VII-Autonomous-Intelligence.git
 cd Nexus-VII-Autonomous-Intelligence
 ```
 
@@ -105,7 +105,7 @@ copy .env.example .env
 
 Open `.env` in a text editor and fill in your API keys:
 
-#### 🔑 Required (at minimum one)
+#### ðŸ”‘ Required (at minimum one)
 
 | Variable | Where to Get It |
 |----------|----------------|
@@ -113,7 +113,7 @@ Open `.env` in a text editor and fill in your API keys:
 | `AI_BASE_URL` | Pre-filled for Gemini. Change if using Groq/Ollama. |
 | `AI_MODEL` | Pre-filled. Change if using a different model. |
 
-#### 🔑 Optional Integrations
+#### ðŸ”‘ Optional Integrations
 
 | Variable | Where to Get It |
 |----------|----------------|
@@ -132,7 +132,7 @@ To enable Google Calendar and Drive features:
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
 2. Create a new project (or select an existing one).
 3. Enable the **Google Calendar API** and **Google Drive API**.
-4. Go to **Credentials** → **Create Credentials** → **OAuth 2.0 Client ID**.
+4. Go to **Credentials** â†’ **Create Credentials** â†’ **OAuth 2.0 Client ID**.
 5. Download the JSON file and save it as `auth/credentials.json`.
 6. On first use, a browser window will open for you to authorize access. The resulting `auth/token.json` will be created automatically.
 
@@ -153,7 +153,7 @@ Then open **http://localhost:8000** in your browser.
 
 ---
 
-## 🖥️ Web UI
+## ðŸ–¥ï¸ Web UI
 
 The HUD (Heads-Up Display) runs in your browser and provides:
 
@@ -166,7 +166,7 @@ The HUD (Heads-Up Display) runs in your browser and provides:
 
 ---
 
-## 🤖 Telegram Setup
+## ðŸ¤– Telegram Setup
 
 1. Open Telegram and message [@BotFather](https://t.me/BotFather).
 2. Send `/newbot` and follow the prompts to create your bot.
@@ -177,7 +177,7 @@ The HUD (Heads-Up Display) runs in your browser and provides:
 
 ---
 
-## ⚙️ Supported AI Providers
+## âš™ï¸ Supported AI Providers
 
 | Provider | Base URL | Models |
 |----------|----------|--------|
@@ -191,7 +191,7 @@ The neural hot-swapping system automatically rotates through your configured bac
 
 ---
 
-## 📜 Scripts
+## ðŸ“œ Scripts
 
 Utility scripts in the `scripts/` folder:
 
@@ -203,7 +203,7 @@ Utility scripts in the `scripts/` folder:
 
 ---
 
-## 🛡️ Security Notes
+## ðŸ›¡ï¸ Security Notes
 
 - Your `.env` file is **gitignored** and will never be committed.
 - `auth/credentials.json` and `auth/token.json` are **gitignored**.
@@ -212,13 +212,14 @@ Utility scripts in the `scripts/` folder:
 
 ---
 
-## 📝 License
+## ðŸ“ License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 🙏 Acknowledgments
+## ðŸ™ Acknowledgments
 
 Inspired by J.A.R.V.I.S. from the Marvel Cinematic Universe.
 Built with Google Gemini, NVIDIA NIM, Mistral AI, FastAPI, and Playwright.
+

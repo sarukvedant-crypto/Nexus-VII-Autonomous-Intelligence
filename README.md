@@ -68,18 +68,14 @@ Follow these steps exactly and you will have Nexus VII running in under 5 minute
 
 - **Python 3.10+** → [Download here](https://www.python.org/downloads/) ⚠️ **Check "Add Python to PATH"** during installation!
 - **Windows 10/11** → This project uses Windows-specific APIs (registry, PowerShell, etc.)
-- **Git** → [Download here](https://git-scm.com/) (optional, you can also download the ZIP)
+- **Git** → [Download here](https://git-scm.com/)
 
-### Step 1: Download the Project
+### Step 1: Clone the Repository
 
-**Option A — Using Git:**
 ```bash
 git clone https://github.com/vedant-saruk/Nexus-VII-Autonomous-Intelligence.git
 cd Nexus-VII-Autonomous-Intelligence
 ```
-
-**Option B — Using ZIP:**
-Download and extract the ZIP file, then open a terminal inside the extracted folder.
 
 ### Step 2: Create & Activate a Virtual Environment
 

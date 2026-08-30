@@ -35,7 +35,7 @@ def analyze_document(image_path, query="Please extract all text and analyze the 
         else:
             invoke_url = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
             token = gemini_key
-            model = "gemini-2.5-flash"
+            model = os.getenv("AI_MODEL", "gemini-2.5-flash")
             
         headers = {
             "Authorization": f"Bearer {token}",

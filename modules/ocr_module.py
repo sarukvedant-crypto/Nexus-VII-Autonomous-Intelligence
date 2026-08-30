@@ -4,14 +4,16 @@ import requests
 from dotenv import load_dotenv
 
 load_dotenv()
-NEMOTRON_API_KEY = os.getenv("NEMOTRON_API_KEY")
 
 def analyze_document(image_path, query="Please extract all text and analyze the document."):
     """
-    Uses NVIDIA Nemotron API to perform advanced OCR and Document Intelligence on an image.
+    Uses an available Vision API (NVIDIA Nemotron or Google Gemini) to perform OCR and Document Intelligence.
     """
-    if not NEMOTRON_API_KEY:
-        return "NEMOTRON_API_KEY not configured in .env"
+    nemotron_key = os.getenv("NEMOTRON_API_KEY")
+    gemini_key = os.getenv("GEMINI_API_KEY") or os.getenv("AI_API_KEY")
+    
+    if not nemotron_key and not gemini_key:
+        return "No vision API key found. Please set NEMOTRON_API_KEY or GEMINI_API_KEY in .env"
 
     if not os.path.exists(image_path):
         return f"File not found: {image_path}"
@@ -25,9 +27,18 @@ def analyze_document(image_path, query="Please extract all text and analyze the 
         mime_type = mime_map.get(ext, "image/png")
         image_url = f"data:{mime_type};base64,{b64_data}"
         
-        invoke_url = "https://integrate.api.nvidia.com/v1/chat/completions"
+        # Determine which API to use based on available keys
+        if nemotron_key:
+            invoke_url = "https://integrate.api.nvidia.com/v1/chat/completions"
+            token = nemotron_key
+            model = "nvidia/llama-3.1-nemotron-nano-vl-8b-v1"
+        else:
+            invoke_url = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+            token = gemini_key
+            model = "gemini-2.5-flash"
+            
         headers = {
-            "Authorization": f"Bearer {NEMOTRON_API_KEY}",
+            "Authorization": f"Bearer {token}",
             "Accept": "application/json",
         }
         
@@ -49,7 +60,7 @@ def analyze_document(image_path, query="Please extract all text and analyze the 
                     ]
                 }
             ],
-            "model": "nvidia/llama-3.1-nemotron-nano-vl-8b-v1",
+            "model": model,
             "temperature": 0.1,
             "top_p": 1.0,
             "max_tokens": 2048,
@@ -61,7 +72,7 @@ def analyze_document(image_path, query="Please extract all text and analyze the 
         if response.status_code == 200:
             return response.json()['choices'][0]['message']['content']
         else:
-            return f"Nemotron API Failed: {response.status_code} - {response.text}"
+            return f"Vision API Failed: {response.status_code} - {response.text}"
             
     except Exception as e:
         return f"Failed to analyze document: {e}"

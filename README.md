@@ -69,6 +69,7 @@ Follow these steps exactly and you will have Nexus VII running in under 5 minute
 - **Python 3.10+** → [Download here](https://www.python.org/downloads/) ⚠️ **Check "Add Python to PATH"** during installation!
 - **Windows 10/11** → This project uses Windows-specific APIs (registry, PowerShell, etc.)
 - **Git** → [Download here](https://git-scm.com/)
+- **Spotify Desktop** → (Optional) Required for Spotify automation (must be installed and logged in)
 
 ### Step 1: Clone the Repository
 
@@ -131,6 +132,7 @@ Open the `.env` file in any text editor (Notepad, VS Code, etc.) and fill in you
 |----------|----------------|
 | `GEMINI_API_KEY` | Same as above, used for vision & memory features |
 | `NVIDIA_API_KEY` | [NVIDIA Build](https://build.nvidia.com/) |
+| `NEMOTRON_API_KEY` | [NVIDIA Build](https://build.nvidia.com/) (Required for OCR / Screen Analysis) |
 | `BACKUP_*` keys | Additional API keys for hot-swap failover |
 | `GMAIL_ADDRESS` | Your Gmail address |
 | `GMAIL_APP_PASSWORD` | [Google App Passwords](https://myaccount.google.com/apppasswords) (requires 2FA) |

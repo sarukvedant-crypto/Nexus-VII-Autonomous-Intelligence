@@ -21,7 +21,8 @@ Built with Python · FastAPI · WebSockets
 
 | Feature | Description |
 |---------|-------------|
-| **🎙️ Voice Control** | Speak to your assistant using real-time speech recognition and TTS. |
+| **🗣️ Wake-Word Activation** | Hands-free experience. Just say "Jarvis" to wake the system, activate the Web UI, and start recording your input. |
+| **🎙️ Voice Control** | Speak to your assistant using real-time speech recognition and human-like TTS responses. |
 | **📱 Telegram Bot** | Remote control and notifications via a personal Telegram bot. |
 | **🔄 Proactive Engine** | Autonomous background AI that monitors your goals and sends nudges. |
 | **🕵️ Silent Web Research** | Background web searches to fact-check or gather context before responding, without clogging the chat. |

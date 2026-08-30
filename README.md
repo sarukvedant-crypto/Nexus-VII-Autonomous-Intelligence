@@ -33,7 +33,6 @@ Built with Python · FastAPI · WebSockets
 | **📄 PDF Generation** | Beautiful, themed PDF creation with Playwright rendering. |
 | **🎯 Skills System** | Extensible skill/plugin system to teach your AI new behaviors. |
 | **🎵 Spotify Automation** | Headless browser track searching and playback without needing API keys. |
-| **🎬 Video Editing** | Automate DaVinci Resolve via scripts to import clips and organize media. |
 | **🚀 Smart App Locator** | Dynamically finds and launches Windows apps using deep registry scanning. |
 
 ---
@@ -212,7 +211,6 @@ Utility scripts in the `scripts/` folder:
 | Script | Description |
 |--------|-------------|
 | `generate_syllabus.py` | Generates a beautifully formatted PDF syllabus from course data. |
-| `import_clips_to_resolve.py` | Imports MP4 clips into DaVinci Resolve via API or GUI automation. |
 | `organize_files.py` | Organizes files in a folder by name-based numeric sorting. |
 
 ---

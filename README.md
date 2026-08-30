@@ -4,13 +4,13 @@
 
 **A J.A.R.V.I.S.-inspired autonomous AI assistant with voice control, Telegram integration, proactive reminders, web form automation, screen analysis, and neural hot-swapping across multiple AI providers.**
 
-Built with Python · FastAPI · WebSockets · Google Gemini · NVIDIA · Mistral AI
+Built with Python · FastAPI · WebSockets
 
 <br>
-<img src="https://img.shields.io/github/license/vedant-saruk/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="License">
-<img src="https://img.shields.io/github/stars/vedant-saruk/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="Stars">
-<img src="https://img.shields.io/github/forks/vedant-saruk/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="Forks">
-<img src="https://img.shields.io/github/issues/vedant-saruk/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="Issues">
+<img src="https://img.shields.io/github/license/sarukvedant-crypto/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="License">
+<img src="https://img.shields.io/github/stars/sarukvedant-crypto/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="Stars">
+<img src="https://img.shields.io/github/forks/sarukvedant-crypto/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="Forks">
+<img src="https://img.shields.io/github/issues/sarukvedant-crypto/Nexus-VII-Autonomous-Intelligence?style=flat-square" alt="Issues">
 <br>
 
 </div>
@@ -245,4 +245,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 🙏 Acknowledgments
 
 Inspired by J.A.R.V.I.S. from the Marvel Cinematic Universe.
-Built with Google Gemini, NVIDIA NIM, Mistral AI, FastAPI, and Playwright.
+Built with Python, FastAPI, and Playwright.

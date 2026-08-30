@@ -73,7 +73,7 @@ Follow these steps exactly and you will have Nexus VII running in under 5 minute
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/vedant-saruk/Nexus-VII-Autonomous-Intelligence.git
+git clone https://github.com/sarukvedant-crypto/Nexus-VII-Autonomous-Intelligence.git
 cd Nexus-VII-Autonomous-Intelligence
 ```
 

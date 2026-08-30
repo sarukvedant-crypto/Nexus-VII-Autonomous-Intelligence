@@ -24,15 +24,22 @@ Built with Python · FastAPI · WebSockets
 | **🎙️ Voice Control** | Speak to your assistant using real-time speech recognition and TTS. |
 | **📱 Telegram Bot** | Remote control and notifications via a personal Telegram bot. |
 | **🔄 Proactive Engine** | Autonomous background AI that monitors your goals and sends nudges. |
-| **📝 Web Form Automation** | AI-powered Google Forms and web form filling via Playwright. |
-| **👁️ Screen Analysis** | OCR and Gemini-powered vision to understand what's on your screen. |
+| **🕵️ Silent Web Research** | Background web searches to fact-check or gather context before responding, without clogging the chat. |
+| **👁️ Screen Analysis** | Visual awareness of your desktop. Ask "Look at my screen" to take a screenshot and get contextual advice. |
+| **📱 Instagram Researcher** | Built-in ability to scrape public Instagram profiles and generate analytical reports on them. |
+| **🗂️ App Management** | Open and close specific applications, or execute a "focus mode" by closing all non-essential apps. |
+| **📁 File System Mastery** | Read, write, move, delete, and create files/folders anywhere. Compile text into formatted PDFs. |
+| **⚙️ System Operations** | Lock screen, adjust master volume, empty recycle bin, put PC to sleep, restart, or format drives. |
+| **🎵 Spotify Integration** | Search for and play specific songs, artists, or playlists on Spotify desktop, and control media playback. |
+| **📋 Clipboard Access** | Read whatever text you currently have copied to your clipboard. |
+| **⏰ Smart Reminders** | Schedule delayed pings to your phone by setting a reminder at a specific time. |
+| **📧 Gmail Integration** | Read your latest unread emails and compose/send new emails on your behalf. |
+| **🛡️ Action Confirmation Gate** | Intercepts highly destructive actions (like formatting a drive) and forces a manual prompt for safety. |
 | **🧬 Neural Hot-Swapping** | Seamless automatic failover across multiple AI providers when rate limits hit. |
 | **📅 Google Calendar** | Check and create calendar events via the Google Calendar API. |
 | **📂 Google Drive** | Download files and entire folders from Google Drive shared links. |
 | **🧠 Vector Memory** | Persistent long-term memory with semantic recall (RAG). |
-| **📄 PDF Generation** | Beautiful, themed PDF creation with Playwright rendering. |
 | **🎯 Skills System** | Extensible skill/plugin system to teach your AI new behaviors. |
-| **🎵 Spotify Automation** | Headless browser track searching and playback without needing API keys. |
 | **🚀 Smart App Locator** | Dynamically finds and launches Windows apps using deep registry scanning. |
 
 ---

@@ -43,6 +43,13 @@ Built with Python · FastAPI · WebSockets
 | **🧠 Vector Memory** | Persistent long-term memory with semantic recall (RAG). |
 | **🎯 Skills System** | Extensible skill/plugin system to teach your AI new behaviors. |
 | **🚀 Smart App Locator** | Dynamically finds and launches Windows apps using deep registry scanning. |
+| **🧑‍💻 Dedicated Coding Mode** | Hot-swaps to NVIDIA's massive Llama 3.1 70B model specifically for complex coding tasks. |
+| **📺 YouTube Automation** | Autonomously opens your browser and runs specific YouTube search queries. |
+| **🧹 Show Desktop Panic Button** | Instantly minimize every single window on your computer using Windows shell APIs. |
+| **📲 PC-to-Phone File Transfer** | Generates or extracts files from your PC and sends them directly to your Telegram app. |
+| **🎯 Anti-Procrastination Telemetry** | Silently checks the active screen window to send context-aware nudges if you are distracted. |
+| **🧩 Drag-and-Drop Skill Hub** | Install new capabilities by dropping Python scripts or URLs directly into the Web HUD. |
+| **🎛️ Live Configuration Panel** | Securely edit API keys and settings in real-time from the web interface. |
 
 ---
 

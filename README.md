@@ -26,6 +26,7 @@ Built with Python · FastAPI · WebSockets
 | **📱 Telegram Bot** | Remote control and notifications via a personal Telegram bot. |
 | **🔄 Proactive Engine** | Autonomous background AI that monitors your goals and sends nudges. |
 | **🕵️ Silent Web Research** | Background web searches to fact-check or gather context before responding, without clogging the chat. |
+| **📝 Web Form Automation** | AI-powered Google Forms and web form filling via Playwright. |
 | **👁️ Screen Analysis** | Visual awareness of your desktop. Ask "Look at my screen" to take a screenshot and get contextual advice. |
 | **📱 Instagram Researcher** | Built-in ability to scrape public Instagram profiles and generate analytical reports on them. |
 | **🗂️ App Management** | Open and close specific applications, or execute a "focus mode" by closing all non-essential apps. |
